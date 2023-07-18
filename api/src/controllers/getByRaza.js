@@ -3,7 +3,7 @@ const getDogAPI = require('./getDogAPI')
 
 async function getByRaza(req,res){
     const {id} = req.params;
-
+    console.log('idback:',id)
     try {
         if(isNaN(id)){
             return res.status(200).json(await getDogDB(id));

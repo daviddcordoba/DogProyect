@@ -1,6 +1,6 @@
 const getApiData = require('./getApiData');
-const getDogByName = require('./getByName');
 const getDbData = require('./getDbData');
+const getDogByName = require('./getByName');
 
 
 async function getDogs(req,res){
@@ -9,7 +9,6 @@ async function getDogs(req,res){
 
         if(name){
             const response = await getDogByName(name);
-            console.log('response:',response)
             if(response){
                 return res.status(200).json(response);
             } 

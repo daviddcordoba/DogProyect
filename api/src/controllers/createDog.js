@@ -2,15 +2,15 @@ const {Dog,Temperaments } = require('../db');
 
 async function createDog(req,res){
     try {
-        const { nombre, altura,peso,anosVida,temperaments} = req.body;
+        const { nombre,peso_min,peso_max,altura_min,altura_max,anosVida,temperaments} = req.body;
 
-        if( !nombre || !altura || !peso || !anosVida || !temperaments){
+        if( !nombre || !peso_max || !anosVida || !temperaments || !peso_min || !altura_min || !altura_max){
             throw Error("Faltan datos")
         }
 
         const [newDog,created] = await Dog.findOrCreate({
             where: {nombre: nombre},
-            defaults: {altura,peso,anosVida,created:true}
+            defaults: {peso_min,peso_max,altura_max,altura_min,anosVida,created:true}
         })
 
         //relacion con su temperament

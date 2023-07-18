@@ -1,5 +1,7 @@
 const {Dog,Temperaments} = require('../db');
 
+
+//ESTA FUNCION TRAE TODOS LOS PERROS DE LA DB
 async function getDbData (){
     const data_db = await Dog.findAll({
         include: {
@@ -19,8 +21,10 @@ async function getDbData (){
             id: dog.id,
             imagen: dog.imagen,
             nombre: dog.nombre,
-            altura: dog.altura,
-            peso: dog.peso,
+            altura_min: dog.altura_min,
+            altura_max: dog.altura_max,
+            peso_min: dog.peso_min,
+            peso_max: dog.peso_max,
             anosVida: dog.anosVida,
             temperaments: dog.temperaments.map(temp => temp.nombre), //porq quiero que sea temperaments:['a','b']
             created: dog.created,

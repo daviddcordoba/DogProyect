@@ -1,3 +1,6 @@
+
+//ESTA FUNCION RECORRE TODOS LOS DOGS PARA QUEDARSE ,SI TIENE, CON SUS TEMPERAMENTOS.
+//PARA ASI DESPUES SUBIRLOS A LA DB
 function extractTemperaments (data){
     let temperaments = [];
 

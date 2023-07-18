@@ -13,8 +13,8 @@ async function getTemperaments(req, res) {
         temperaments.forEach(async temp => await Temperaments.findOrCreate({where: {nombre: temp}}))
         
         const temperaments_db = await Temperaments.findAll();
+        console.log(temperaments_db.map(temp=> temp.nombre))
         return res.status(200).json(temperaments_db);
-        
     } catch (error) {
         return  res.status(400).json({error:error.message});
     }
