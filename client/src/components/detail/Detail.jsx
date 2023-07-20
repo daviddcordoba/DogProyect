@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect} from 'react';
 
+import './detail.css'
+
 const Detail = () => {
   const {id} = useParams()
   const [dogDetail, setDogDetail] = useState({});
@@ -10,6 +12,7 @@ const Detail = () => {
   useEffect(()=>{
     axios.get(`http://localhost:3001/dogs/${id}`)
     .then(({data}) => {
+      console.log(data)
       setDogDetail(data)
     })
     .catch(error => console.log('errorDetail:',error.response.data.error)) 
@@ -19,17 +22,17 @@ const Detail = () => {
     
     
   },[id])
-  
+
   return (
-    <div>dogDetailDetail
+    <div className='detail-container'>
       <img src={dogDetail.imagen && dogDetail.imagen} alt="" />
             <h1>Nombre: {dogDetail.nombre && dogDetail.nombre}</h1>
-            <h1>Alturamin: {dogDetail.altura_min && dogDetail.altura_min}</h1>
-            <h1>Pesomin: {dogDetail.peso_min && dogDetail.peso_min}</h1>
-            <h1>Alturamax: {dogDetail.altura_max && dogDetail.altura_max}</h1>
-            <h1>Pesomax: {dogDetail.peso_max && dogDetail.peso_max}</h1>
-            <h1>Temperamentos: {dogDetail.temperament?.length > 0 ? dogDetail.temperament.join(',') :"sin-temperamentos"}</h1>
-            <h1>AnosVida: {dogDetail.anosVida && dogDetail.anosVida}</h1>
+            <h2>Alturamin: {dogDetail.altura_min && dogDetail.altura_min}</h2>
+            <h2>Pesomin: {dogDetail.peso_min && dogDetail.peso_min}</h2>
+            <h2>Alturamax: {dogDetail.altura_max && dogDetail.altura_max}</h2>
+            <h2>Pesomax: {dogDetail.peso_max && dogDetail.peso_max}</h2>
+            <h2>Temperamentos: {dogDetail.temperaments?.length > 0 ? dogDetail.temperaments.map(temp => temp).join(',') :"sin-temperamentos"}</h2>
+            <h2>AnosVida: {dogDetail.anosVida && dogDetail.anosVida}</h2>
     </div>
   )
 }

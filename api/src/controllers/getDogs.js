@@ -3,7 +3,7 @@ const getDbData = require('./getDbData');
 const getDogByName = require('./getByName');
 
 
-async function getDogs(req,res){
+async function getDogs(req,res){ // handler manejador maneja errores
     try{
         const {name} = req.query;
 
@@ -20,9 +20,10 @@ async function getDogs(req,res){
         return res.status(200).json([...data_api,...data_db])
     }
     catch(err){
-        return res.status(404).json({error: err.message}) 
+        return res.status(500).json({error: err.message}) 
     }
 } 
 
 module.exports = getDogs
 
+//q pasa si fall seria 500?

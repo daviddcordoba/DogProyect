@@ -3,7 +3,7 @@ const {API_KEY} = process.env;
 const axios = require('axios');
 
 ///ESTA FUNCION RETORNA UNA ARREGLO CON TODOS LOS DOGS DE LA API
-async function getApiData(){
+async function getApiData(){ //controller ?
     try {
         const {data} = await axios.get(`${URL}?api_key=${API_KEY}`);
         
@@ -20,7 +20,7 @@ async function getApiData(){
                 temperaments: dog.temperament?dog.temperament.split(',').map(temp => temp.trim()):[],
                 created: false
             }
-        })
+        })  
         return dog_data_api;
     }catch (error) {
         throw Error(error);
@@ -29,3 +29,4 @@ async function getApiData(){
 
 
 module.exports = getApiData;
+

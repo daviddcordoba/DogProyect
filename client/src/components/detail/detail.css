@@ -1,0 +1,26 @@
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-bottom: 20px;
+  }
+  
+  .detail-container img {
+    width: 100%;
+    max-width: 400px; /* Puedes ajustar este valor según tus necesidades */
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para los títulos */
+  .detail-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .detail-container h2 {
+    font-size: 18px;
+    margin: 5px 0;
+  }

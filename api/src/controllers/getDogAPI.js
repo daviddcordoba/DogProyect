@@ -20,7 +20,7 @@ async function getDogAPI(id) {
             peso_min: dogFound.weight.metric.split('-')[0]?.trim(),
             peso_max: dogFound.weight.metric.split('-')[1]?.trim(),
             anosVida: dogFound.life_span?.split(' years')[0],
-            temperament: dogFound.temperament
+            temperaments: dogFound.temperament
                         ? dogFound.temperament.split(',').map(temp => temp.trim())
                         : [],
             created: false

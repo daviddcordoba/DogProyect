@@ -10,8 +10,8 @@ module.exports = (sequelize) => {
       primaryKey : true
     },
     imagen: {
-      type: DataTypes.STRING,
-      allowNull: true
+      type: DataTypes.TEXT, // esto es porque algunas dir de img vienen muy largas para ser string
+      allowNull: false
     },
     nombre: {
       type: DataTypes.STRING,
@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
       allowNull:false,
     },
     anosVida:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull:false,
     },
     created:{

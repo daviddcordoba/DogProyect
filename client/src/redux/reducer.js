@@ -1,4 +1,4 @@
-import { FILTER_BY_ORDER, FILTER_BY_ORIGIN, FILTER_BY_TEMPERAMENT, FILTER_BY_WEIGTH, GET_DOGS, GET_DOG_BY_RAZA, GET_TEMPERAMENTS } from "./actions";
+import { CREATE_DOG, FILTER_BY_ORDER, FILTER_BY_ORIGIN, FILTER_BY_TEMPERAMENT, FILTER_BY_WEIGTH, GET_DOGS, GET_DOG_BY_RAZA, GET_TEMPERAMENTS } from "./actions";
 
 let initialState = {
     allDogs : [],
@@ -14,6 +14,13 @@ function rootReducer( state = initialState, action){
                 ...state,
                 allDogs: action.payload,
                 allDogsBackup: action.payload
+            }
+        
+        case CREATE_DOG:
+            console.log(action.payload)
+            return{
+                ...state,
+                allDogs : [...state.allDogs,action.payload]
             }
 
         case GET_TEMPERAMENTS:
@@ -43,7 +50,7 @@ function rootReducer( state = initialState, action){
         
         case FILTER_BY_ORIGIN:
             const copyAllDogs = [...state.allDogsBackup]
-            //podria directamente usar [...state.allDogsBackup] y no declarar nada? creo q si
+            
 
             if(action.payload == 'ALL'){
                 return{

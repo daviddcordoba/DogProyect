@@ -1,0 +1,45 @@
+.section-container{
+    display: grid;
+  grid-template-rows: auto auto auto; /* Tres filas: una para cada sección */
+  grid-gap: 10px;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.search-container input{
+    width: 100px;
+}
+.button-search {
+    font-size: 13px;
+    width: 80px;
+}
+
+
+.filters{
+    display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas con el mismo ancho */
+  grid-gap: 10px; /* Espaciado entre columnas */
+}
+
+.temperaments-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+  
+  /* Estilos para cada checkbox */
+  .temperament-checkbox {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Estilos para el botón */
+  .button-temps {
+    grid-column: 1 / span 3; /* El botón ocupa todo el ancho de las 3 columnas */
+  }
