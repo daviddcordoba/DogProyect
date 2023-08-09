@@ -27,6 +27,5 @@ async function getApiData(){ //controller ?
     }
 }
 
-
 module.exports = getApiData;
 
