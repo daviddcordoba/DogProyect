@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import './cardsContainers.css'
+import { handleInicio } from './handleInicio';
 
 const CardsContainer = ({allDogs}) => {
   const CARDS_PER_PAGE = 8;
@@ -41,6 +42,7 @@ const CardsContainer = ({allDogs}) => {
     <div className='cards-container'>
       {dogs.map((dog, index) => (
         <div className ='card' key={index}>
+          
               <Link to={`/detail/${dog.id}`}> {dog.nombre}  </Link>
               <img src={dog.imagen} width={'200px'} alt={dog.nombre} />
               <h4>Altura:{dog.altura_min} - {dog.altura_max}</h4>
@@ -69,7 +71,7 @@ const CardsContainer = ({allDogs}) => {
                     {">"}
                 </button>
 
-
+                <button onClick={()=>handleInicio}>1</button>
         </div>
     </div>
   )

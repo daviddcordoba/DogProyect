@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import './filtersAndOrders.css'
 import { filterByOrder, filterByOrigin,  filterByTemperament, filterByWeigth, getDogByRaza, getDogs, getTemperaments } from '../../redux/actions';
+import { Link } from 'react-router-dom';
 
 
 const FiltersAndOrders = ({allDogs,allTemperaments}) => {
@@ -76,7 +77,7 @@ const FiltersAndOrders = ({allDogs,allTemperaments}) => {
                 <option value="API">API</option>
                 <option value="DB">DataBase</option>
                 </select>
-        </div>
+          </div>
 
         <div>
             Ordenar por nombre
@@ -85,6 +86,7 @@ const FiltersAndOrders = ({allDogs,allTemperaments}) => {
                 <option value="D"> Z-A</option>
                 </select>
         </div>
+        <Link to={`/create`}> Crear perro</Link>
 
         <div>
             Ordenar por peso
